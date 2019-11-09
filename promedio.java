@@ -22,7 +22,8 @@ public class promedio {
 
         //definicion de variables
         int numEdades;
-        double p;//capturadora
+        int s;//capturadora suma
+        double p;//capturadora promedio
         String sw;//swithes
 
         do {
@@ -35,47 +36,55 @@ public class promedio {
             //inicializar variables y funciones
             System.out.println("Ingrese cuantas edades a promediar");
             numEdades = leer.nextByte();
+            
+            s = suma(numEdades);//funacion suma
 
-            p = promedio(numEdades);
+            p = promedio(s, numEdades);//funcion promedio
 
             //linea
             System.out.println("----------------------------------------");
 
             //imprimir
             System.out.println("El promedio de edad es: " + p);
-
+            
             //preguntamos si desea continuar
             System.out.println("¿Desea continuar?");
             sw = leer.next();
-
+            
         } while ("si".equals(sw));
     }
-
-    private static double promedio(int ne) {
+    
+    private static int suma(int ne){
         //leer datos por teclado y consola
         Scanner leer = new Scanner(System.in);
-
-        //definicion de variables
+        
+        //definimos variables
         int suma;
         int edad;
-        double prom;
-
-        //inicializar variables
+        
+        //inicializar contadores y acumuladores
         suma = 0;
-
+        
         //linea
         System.out.println("----------------------------------------");
-
+        
         //proceso
         System.out.println("Ingreso de edades");
         for (int i = 1; i <= ne; i++) {
-            System.out.println("Ingrese edad");
+            System.out.println("Ingrese una edad");
             edad = leer.nextInt();
             suma = suma + edad;
         }
+        return suma;
+    }
 
-        //promedio
-        prom = suma / ne;
+    private static double promedio(int su, int ne) {
+
+        //definicion de variables
+        double prom;
+
+        //proceso        
+        prom = su / ne;//promedio
 
         //retornamos
         return prom;
