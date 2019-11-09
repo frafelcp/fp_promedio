@@ -39,13 +39,11 @@ public class promedio {
             
             s = suma(numEdades);//funacion suma
 
-            p = promedio(s, numEdades);//funcion promedio
+            promedio(s, numEdades);//funcion promedio
 
             //linea
             System.out.println("----------------------------------------");
-
-            //imprimir
-            System.out.println("El promedio de edad es: " + p);
+            
             
             //preguntamos si desea continuar
             System.out.println("¿Desea continuar?");
@@ -78,15 +76,18 @@ public class promedio {
         return suma;
     }
 
-    private static double promedio(int su, int ne) {
+    private static void promedio(int su, int ne) {
 
         //definicion de variables
         double prom;
 
         //proceso        
         prom = su / ne;//promedio
+        
+        //linea
+        System.out.println("----------------------------------------");
 
-        //retornamos
-        return prom;
+        //imprimir
+        System.out.println("El promedio de edad es: " + prom);
     }
 }
